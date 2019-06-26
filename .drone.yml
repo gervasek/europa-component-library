@@ -1,6 +1,16 @@
 branches:
   exclude: [ gh-pages ]
 
+clone:
+  git:
+    image: plugins/git:next
+    when:
+      event: [ pull_request, tag ]
+  git:
+    image: plugins/git
+    when:
+      event: [ deployment ]
+
 matrix:
   TEST:
     - audit
