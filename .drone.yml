@@ -14,9 +14,7 @@ pipeline:
     commands:
       - yarn install --frozen-lockfile
     when:
-      event: [ push, pull_request, tag]
-      matrix:
-        TEST: [ audit, conventions, examples]
+      event: [ pull_request, tag]
 
   audit:
     image: node:dubnium
